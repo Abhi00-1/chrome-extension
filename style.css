@@ -1,0 +1,24 @@
+body{
+    min-width: 450px;
+    height: auto;
+    background: light-dark(#f7f9fc,#0b1220);
+    box-shadow:  0px 0px 10px light-dark(#2563eb,#60a5fa);
+    border-radius: 20px;
+    text-align: center;
+    color: light-dark(#0f172a,#e5e7eb);
+}
+span{
+    color: light-dark(#2563eb,#60a5fa);
+    text-shadow: 1px 4px 5px light-dark(#9aa6b2,#000000);
+}
+#container{
+    width:400px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 2px 20px light-dark(#cbd5e1,#000000);
+    background: light-dark(#ffffff,#111827);
+    border: 1px solid light-dark(#e2e8f0,#374151);
+    border-radius: 10px;
+}
+
