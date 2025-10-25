@@ -48,3 +48,42 @@ span{
   transform: translateY(-2px);
   box-shadow: 0 5px 15px light-dark(rgba(37, 99, 235, 0.4), rgba(37, 99, 235, 0.6));
 }
+
+.display-board {
+  margin: 15px auto;
+  padding: 10px;
+  width: 90%;
+  min-height: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  background: light-dark(#f9fafb, #1e293b);
+  border: 1px solid light-dark(#e5e7eb, #374151);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px light-dark(rgba(148, 163, 184, 0.3), rgba(15, 23, 42, 0.7));
+}
+
+.note{
+  margin: 2px 2px;
+    width: auto;
+    height: auto;
+    padding:2px 3px ;
+    background: light-dark(#f8fafc,#0f172a);
+    color: light-dark(#0f172a,#e5e7eb);
+    font-size: 12px;
+    box-shadow: 2px 4px 8px light-dark(#2563eb,#3b82f6);
+    border: 1px solid light-dark(#e2e8f0,#374151);
+    border-radius: 6px;
+    
+
+}
+.note:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 15px light-dark(rgba(37, 99, 235, 0.25), rgba(37, 99, 235, 0.4));
+}
+
+.note h4{
+    margin-top: 0;
+    color: light-dark(#475569,#9ca3af);
+}
