@@ -87,3 +87,23 @@ span{
     margin-top: 0;
     color: light-dark(#475569,#9ca3af);
 }
+
+.ui{
+    width:350px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:8px;
+    margin-top: -250px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    padding-top: 15px;
+    border: 1px solid light-dark(#e2e8f0,#374151);
+    box-shadow:  1px 2px 20px light-dark(#cbd5e1,#000000);
+    border-radius: 6px;
+    background: light-dark(#ffffff,#111827);
+    z-index: 100;
+}
