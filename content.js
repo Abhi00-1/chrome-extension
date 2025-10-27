@@ -146,3 +146,17 @@ function createContainer() {
   });
 }
 
+chrome.storage.onChanged.addListener((changes, areaName) => {
+  if (areaName !== "local" || !changes.customNotes) return;
+  const newCustomNotes = changes.customNotes.newValue || {};
+  const notes = newCustomNotes[domain] || [];
+  if (notes.length > 0) {
+    renderNotes(notes, newCustomNotes);
+  } else {
+    if (container) {
+      container.remove();
+      container = null;
+    }
+  }
+});
+
