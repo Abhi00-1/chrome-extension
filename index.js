@@ -89,3 +89,23 @@ customSave.addEventListener("click", async function () {
 customDeleteAllBtn.addEventListener("dblclick",function(){
   chrome.storage.local.remove("customNotes")
 })
+
+displayBoard.addEventListener("click", function(event) {
+  if (event.target.classList.contains("x")) {
+  
+    const noteDiv = event.target.closest(".note");
+    if (!noteDiv) return;
+
+    
+    const index = Number(noteDiv.getAttribute("data-index"));
+    if (isNaN(index)) return;
+
+
+    generalNotes.splice(index, 1);
+
+   
+    chrome.storage.local.set({ notes: generalNotes }, () => {
+      renderNotes(generalNotes);
+    });
+  }
+});
