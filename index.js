@@ -57,3 +57,31 @@ deleteAllBtn.addEventListener("dblclick", function () {
     renderNotes(generalNotes);
   });
 });
+
+customSave.addEventListener("click", async function () {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  const url = new URL(tab.url);
+  const domain = url.hostname;
+  const noteText = customInput.value.trim();
+  if (!noteText) return alert("Please enter a note!");
+
+  chrome.storage.local.get(["customNotes"], (result) => {
+    let savedCustomNotes = result.customNotes || {};
+
+   
+    if (!Array.isArray(savedCustomNotes[domain])) {
+      savedCustomNotes[domain] = [];
+    }
+
+    
+    savedCustomNotes[domain].push(noteText);
+
+    chrome.storage.local.set({ customNotes: savedCustomNotes }, () => {
+      customInput.value = "";
+      customUi.classList.add("hidden");
+
+     
+    
+    });
+  });
+})
