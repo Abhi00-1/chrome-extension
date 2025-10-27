@@ -3,6 +3,48 @@ const domain = window.location.hostname;
 let container = null;
 
 
+function makeMovable(element) {
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+
+  element.style.position = "fixed";
+  element.style.cursor = "move";
+
+  element.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    
+    offsetX = e.clientX - element.getBoundingClientRect().left;
+    offsetY = e.clientY - element.getBoundingClientRect().top;
+    element.style.transition = 'none'; 
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (isDragging) {
+     
+      let left = e.clientX - offsetX;
+      let top = e.clientY - offsetY;
+
+      // Keep it inside viewport horizontally
+      left = Math.min(window.innerWidth - element.offsetWidth, Math.max(0, left));
+      // Keep it inside viewport vertically
+      top = Math.min(window.innerHeight - element.offsetHeight, Math.max(0, top));
+
+      element.style.left = left + "px";
+      element.style.top = top + "px";
+    }
+  });
+
+  document.addEventListener("mouseup", (e) => {
+    if (isDragging) {
+      isDragging = false;
+      element.style.transition = ''; // Re-enable CSS transitions if any
+    }
+  });
+}
+
+
 function createContainer() {
   if (container) return container;
   container = document.createElement("div");
