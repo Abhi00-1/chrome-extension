@@ -1,0 +1,11 @@
+const createbtn = document.getElementById("create");
+const custombtn = document.getElementById("create-custom");
+const createUi = document.getElementById("create-ui");
+const createSave = document.getElementById("create-save");
+const createInput = document.getElementById("create-text");
+const customInput = document.getElementById("custom-text");
+const displayBoard = document.querySelector(".display-board");
+const customUi = document.getElementById("custom-ui");
+const deleteAllBtn = document.getElementById("delete-btn");
+const customSave = document.getElementById("custom-save");
+const customDeleteAllBtn=document.getElementById("custom-delete-btn")
