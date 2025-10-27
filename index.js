@@ -12,6 +12,12 @@ const customDeleteAllBtn=document.getElementById("custom-delete-btn")
 
 let generalNotes = [];
 
+chrome.storage.local.get(["notes"], (result) => {
+  if (result.notes) {
+    generalNotes = result.notes;
+    renderNotes(generalNotes);
+  }
+});
 
 function renderNotes(notes) {
   let display = "";
@@ -43,4 +49,11 @@ createSave.addEventListener("click", function () {
   createInput.value = "";
   createUi.classList.toggle("hidden");
   renderNotes(generalNotes);
+});
+
+deleteAllBtn.addEventListener("dblclick", function () {
+  chrome.storage.local.clear(() => {
+    generalNotes = [];
+    renderNotes(generalNotes);
+  });
 });
