@@ -10,7 +10,7 @@ const deleteAllBtn = document.getElementById("delete-btn");
 const customSave = document.getElementById("custom-save");
 const customDeleteAllBtn=document.getElementById("custom-delete-btn")
 
-
+let generalNotes = [];
 
 
 
@@ -20,4 +20,13 @@ createbtn.addEventListener("click", function () {
 
 custombtn.addEventListener("click", function () {
   customUi.classList.toggle("hidden");
+});
+
+createSave.addEventListener("click", function () {
+  if (!createInput.value.trim()) return;
+  generalNotes.push(createInput.value.trim());
+  chrome.storage.local.set({ notes: generalNotes });
+  createInput.value = "";
+  createUi.classList.toggle("hidden");
+  renderNotes(generalNotes);
 });
