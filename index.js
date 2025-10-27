@@ -13,6 +13,20 @@ const customDeleteAllBtn=document.getElementById("custom-delete-btn")
 let generalNotes = [];
 
 
+function renderNotes(notes) {
+  let display = "";
+  if (notes.length >= 1) {
+    for (let i = 0; i < notes.length; i++) {
+      display += `<div class='note'>
+      <button id="x" class="x" >x</button>
+      <h3>${notes[i]}</h3>
+      </div>`;
+    }
+  } else {
+    display += `<h2>Notes:</h2><div class="note"><h3>Empty</h3><h4>(create new productivity)</h4></div>`;
+  }
+  displayBoard.innerHTML = display;
+}
 
 createbtn.addEventListener("click", function () {
   createUi.classList.toggle("hidden");
