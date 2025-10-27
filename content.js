@@ -2,6 +2,16 @@ const domain = window.location.hostname;
 
 let container = null;
 
+chrome.storage.local.get(["customNotes"], (result) => {
+  const savedCustomNotes = result.customNotes || {};
+  const notes = savedCustomNotes[domain] || [];
+
+  if (notes.length > 0) {
+    renderNotes(notes, savedCustomNotes);
+  }
+});
+
+
 
 function makeMovable(element) {
   let isDragging = false;
@@ -135,3 +145,4 @@ function createContainer() {
     cont.appendChild(noteBox);
   });
 }
+
