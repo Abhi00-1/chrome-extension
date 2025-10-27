@@ -9,3 +9,15 @@ const customUi = document.getElementById("custom-ui");
 const deleteAllBtn = document.getElementById("delete-btn");
 const customSave = document.getElementById("custom-save");
 const customDeleteAllBtn=document.getElementById("custom-delete-btn")
+
+
+
+
+
+createbtn.addEventListener("click", function () {
+  createUi.classList.toggle("hidden");
+});
+
+custombtn.addEventListener("click", function () {
+  customUi.classList.toggle("hidden");
+});
