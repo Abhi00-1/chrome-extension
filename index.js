@@ -85,3 +85,7 @@ customSave.addEventListener("click", async function () {
     });
   });
 })
+
+customDeleteAllBtn.addEventListener("dblclick",function(){
+  chrome.storage.local.remove("customNotes")
+})
